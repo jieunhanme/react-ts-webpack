@@ -5,4 +5,13 @@ import common from "./webpack.common.js";
 export default () =>
   merge(common, {
     mode: "production",
+    module: {
+      rules: [
+        {
+          test: /\.(ts|tsx|js|jsx)$/,
+          exclude: /node_modules/,
+          use: ["babel-loader"],
+        },
+      ],
+    },
   });

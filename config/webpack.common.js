@@ -9,15 +9,6 @@ export default {
     filename: "main.js",
     path: path.resolve(process.cwd(), "dist"),
   },
-  module: {
-    rules: [
-      {
-        test: /\.(ts|tsx|js|jsx)$/,
-        exclude: /node_modules/,
-        use: ["babel-loader", "ts-loader"],
-      },
-    ],
-  },
   resolve: {
     extensions: [".js", "jsx", ".ts", ".tsx"],
   },

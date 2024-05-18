@@ -13,3 +13,9 @@ basic setting of webpack + ts + react
 
 3. init typescript
    npx tsc --init
+
+4. webpack.config 용도에 맞게 분리ㄴ
+
+5. HMR적용
+   devServer > hot automatically true 지만 아래와 같은 문구 떄문에 추가
+   [webpack-dev-server] "hot: true" automatically applies HMR plugin, you don't have to add it manually to your webpack configuration.
