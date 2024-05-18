@@ -5,7 +5,7 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 /** @type {import('webpack').Configuration} */
 export default {
   devtool: "cheap-module-source-map",
-  entry: path.resolve(process.cwd(), "/src/index.jsx"),
+  entry: path.resolve(process.cwd(), "/src/index.tsx"),
   output: {
     filename: "main.js",
     path: path.resolve(process.cwd(), "dist"),
@@ -18,14 +18,14 @@ export default {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(ts|tsx|js|jsx)$/,
         exclude: /node_modules/,
-        use: "babel-loader",
+        use: ["babel-loader", "ts-loader"],
       },
     ],
   },
   resolve: {
-    extensions: [".js", ".jsx"],
+    extensions: [".js", "jsx", ".ts", ".tsx"],
   },
   plugins: [
     new HtmlWebpackPlugin({ template: "index.html" }),
