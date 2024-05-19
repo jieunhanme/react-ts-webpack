@@ -39,9 +39,13 @@ CSS 파일의 코드 최적화(압축)
    dotenv, dotenv-expand: webpack.config.js 에서 환경 변수를 사용하기 위함
    dotenv-webpack: react프로젝트에서 환경 변수를 사용하기 위함
 
+10. add CleanWebpackPlugin
+    build시 dist폴더의 초기화를 진행하도록 설정
+
 TODO
 
 1. devtool
    https://webpack.kr/configuration/devtool/#root
 
 2. module federation
+   <%= env %>
