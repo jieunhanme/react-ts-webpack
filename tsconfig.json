@@ -20,6 +20,5 @@
       "@src/*": ["src/*"],
       "@img/*": ["public/assets/img/*"]
     }
-  },
-  "include": ["src"]
+  }
 }

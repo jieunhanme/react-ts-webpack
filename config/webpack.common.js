@@ -9,6 +9,23 @@ export default {
     filename: "main.js",
     path: path.resolve(process.cwd(), "dist"),
   },
+  module: {
+    rules: [
+      {
+        test: /\.(jpg|jpeg|gif|png|svg|ico)?$/,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 5000,
+              fallback: "file-loader",
+              name: "image/[name].[ext]",
+            },
+          },
+        ],
+      },
+    ],
+  },
   resolve: {
     alias: {
       "@src": path.resolve(process.cwd(), "src/"),
