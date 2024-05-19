@@ -19,3 +19,18 @@ basic setting of webpack + ts + react
 5. HMR적용
    devServer > hot automatically true 지만 아래와 같은 문구 떄문에 추가
    [webpack-dev-server] "hot: true" automatically applies HMR plugin, you don't have to add it manually to your webpack configuration.
+
+6. tailwindcss 적용 및 css 최적화
+
+### MiniCssExtractPlugin
+
+개발 모드에서는 CSS를 여러 번 수정하고 DOM에 <style> 요소의 코드로 주입하는 것이 훨씬 빨리 작동하므로 "style-loader"를 사용하고, 배포 모드에서는 MiniCssExtractPlugin.loader를 사용
+https://yamoo9.gitbook.io/webpack/webpack/webpack-plugins/extract-css-files
+
+### CssMinimizerPlugin
+
+CSS 파일의 코드 최적화(압축)
+
+TODO
+devtool
+https://webpack.kr/configuration/devtool/#root
