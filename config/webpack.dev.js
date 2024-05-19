@@ -1,6 +1,8 @@
 import { merge } from "webpack-merge";
 import common from "./webpack.common.js";
 import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
+import DotenvWebpack from "dotenv-webpack";
+import path from "path";
 
 /** @type {import('webpack').Configuration} */
 export default () =>
@@ -32,5 +34,13 @@ export default () =>
         },
       ],
     },
-    plugins: [new ReactRefreshWebpackPlugin()],
+    plugins: [
+      new ReactRefreshWebpackPlugin(),
+      new DotenvWebpack({
+        defaults: path.resolve(process.cwd(), ".env"),
+        path: path.resolve(process.cwd(), ".env.dev"),
+        expand: true,
+        override: true,
+      }),
+    ],
   });

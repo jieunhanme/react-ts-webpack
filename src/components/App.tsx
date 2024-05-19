@@ -5,6 +5,8 @@ export default function App() {
     <>
       <h1 className="text-green-500">Hello React</h1>
       <p>React + Webpack</p>
+      <h3>ENV</h3>
+      <span>APP_INFO: {JSON.stringify(process.env.APP_INFO)}</span>
       <img src={image01} alt="" />
     </>
   );

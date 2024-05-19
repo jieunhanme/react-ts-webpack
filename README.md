@@ -33,11 +33,15 @@ CSS 파일의 코드 최적화(압축)
 
 7. path alias 적용
 
+8. image loader 적용
+
+9. .env file
+   dotenv, dotenv-expand: webpack.config.js 에서 환경 변수를 사용하기 위함
+   dotenv-webpack: react프로젝트에서 환경 변수를 사용하기 위함
+
 TODO
 
 1. devtool
    https://webpack.kr/configuration/devtool/#root
 
-2. env
-
-3. module federation
+2. module federation

@@ -2,10 +2,27 @@ import { merge } from "webpack-merge";
 import common from "./webpack.common.js";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
+import path from "path";
+import Dotenv from "dotenv";
+import DotenvExpand from "dotenv-expand";
+import DotenvWebpack from "dotenv-webpack";
 
 /** @type {import('webpack').Configuration} */
-export default () =>
-  merge(common, {
+export default ({ TARGET_ENV }) => {
+  const defaultEnvPath = path.resolve(process.cwd(), ".env");
+  const targetEnvPath =
+    TARGET_ENV !== undefined
+      ? path.resolve(process.cwd(), `.env.${TARGET_ENV}`)
+      : "";
+
+  DotenvExpand.expand(
+    Dotenv.config({
+      path: [defaultEnvPath, targetEnvPath],
+      override: true,
+    })
+  );
+
+  return merge(common, {
     mode: "production",
     module: {
       rules: [
@@ -20,8 +37,17 @@ export default () =>
         },
       ],
     },
-    plugins: [new MiniCssExtractPlugin()],
+    plugins: [
+      new MiniCssExtractPlugin(),
+      new DotenvWebpack({
+        defaults: defaultEnvPath,
+        path: targetEnvPath,
+        expand: true,
+        override: true,
+      }),
+    ],
     optimization: {
       minimizer: [new CssMinimizerPlugin()],
     },
   });
+};
