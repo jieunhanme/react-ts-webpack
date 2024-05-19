@@ -10,6 +10,10 @@ export default {
     path: path.resolve(process.cwd(), "dist"),
   },
   resolve: {
+    alias: {
+      "@src": path.resolve(process.cwd(), "src/"),
+      "@img": path.resolve(process.cwd(), "public/assets/img/"),
+    },
     extensions: [".js", "jsx", ".ts", ".tsx"],
   },
   plugins: [
