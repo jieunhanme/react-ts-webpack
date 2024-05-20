@@ -44,7 +44,7 @@ function Header({ children }: PropsWithChildren) {
         </div>
       )}
       <div
-        className={`fixed w-14 bg-[#0000004f] cursor-pointer rounded-b left-1/2 -translate-x-1/2
+        className={`fixed w-14 bg-[#0000004f] cursor-pointer rounded-b left-1/2 -translate-x-1/2 top-0
         ${headerVisible ? "h-5 " : "h-3"}
         `}
         onClick={() => setHeaderVisible((v) => !v)}
