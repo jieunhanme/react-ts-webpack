@@ -5,7 +5,7 @@ import { CleanWebpackPlugin } from "clean-webpack-plugin";
 
 /** @type {import('webpack').Configuration} */
 export default {
-  entry: path.resolve(process.cwd(), "src/index.tsx"),
+  entry: path.resolve(process.cwd(), "src/main.tsx"),
   output: {
     publicPath: "auto",
     path: path.resolve(process.cwd(), "dist"),
