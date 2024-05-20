@@ -46,6 +46,7 @@ TODO
 
 1. devtool
    https://webpack.kr/configuration/devtool/#root
+   https://victor-log.vercel.app/post/js-file-minimize-with-webpack-mode-optimization-devtool/
 
 2. module federation
    <%= env %>

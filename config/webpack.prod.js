@@ -6,7 +6,6 @@ import path from "path";
 import Dotenv from "dotenv";
 import DotenvExpand from "dotenv-expand";
 import DotenvWebpack from "dotenv-webpack";
-import { CleanWebpackPlugin } from "clean-webpack-plugin";
 
 /** @type {import('webpack').Configuration} */
 export default ({ TARGET_ENV }) => {
@@ -46,7 +45,6 @@ export default ({ TARGET_ENV }) => {
         expand: true,
         override: true,
       }),
-      new CleanWebpackPlugin(),
     ],
     optimization: {
       minimizer: [new CssMinimizerPlugin()],

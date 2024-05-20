@@ -1,12 +1,13 @@
 import path from "path";
 import webpack from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
+import { CleanWebpackPlugin } from "clean-webpack-plugin";
 
 /** @type {import('webpack').Configuration} */
 export default {
   entry: path.resolve(process.cwd(), "src/index.tsx"),
   output: {
-    filename: "main.js",
+    publicPath: "auto",
     path: path.resolve(process.cwd(), "dist"),
   },
   module: {
@@ -34,9 +35,10 @@ export default {
     extensions: [".js", "jsx", ".ts", ".tsx"],
   },
   plugins: [
-    new HtmlWebpackPlugin({ template: "index.html" }),
+    new HtmlWebpackPlugin({ template: "index.html", publicPath: "/" }),
     new webpack.ProvidePlugin({
       React: "react",
     }),
+    new CleanWebpackPlugin(),
   ],
 };

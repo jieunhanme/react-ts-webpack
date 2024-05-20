@@ -12,6 +12,7 @@ export default () =>
       hot: true, // hot reloading
       port: 3000, // port on which server will run
       open: true, // open browser automatically on start
+      historyApiFallback: true,
     },
     module: {
       rules: [
