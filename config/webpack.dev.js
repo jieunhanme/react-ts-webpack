@@ -13,6 +13,11 @@ export default () =>
       port: 3000, // port on which server will run
       open: true, // open browser automatically on start
       historyApiFallback: true,
+      client: {
+        overlay: {
+          runtimeErrors: false,
+        },
+      },
     },
     module: {
       rules: [
@@ -36,7 +41,9 @@ export default () =>
       ],
     },
     plugins: [
-      new ReactRefreshWebpackPlugin(),
+      new ReactRefreshWebpackPlugin({
+        overlay: false,
+      }),
       new DotenvWebpack({
         defaults: path.resolve(process.cwd(), ".env"),
         path: path.resolve(process.cwd(), ".env.dev"),
