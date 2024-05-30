@@ -14,16 +14,12 @@ export default {
     rules: [
       {
         test: /\.(jpg|jpeg|gif|png|svg|ico)?$/,
-        use: [
-          {
-            loader: "url-loader",
-            options: {
-              limit: 5000,
-              fallback: "file-loader",
-              name: "image/[name].[ext]",
-            },
+        type: "asset",
+        parser: {
+          dataUrlCondition: {
+            maxSize: 5 * 1024, // 기준을 5KB 로 변경
           },
-        ],
+        },
       },
     ],
   },
@@ -32,7 +28,7 @@ export default {
       "@src": path.resolve(process.cwd(), "src/"),
       "@img": path.resolve(process.cwd(), "public/assets/img/"),
     },
-    extensions: [".js", "jsx", ".ts", ".tsx"],
+    extensions: [".js", ".jsx", ".ts", ".tsx"],
   },
   plugins: [
     new HtmlWebpackPlugin({ template: "index.html", publicPath: "/" }),

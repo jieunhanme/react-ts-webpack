@@ -10,6 +10,7 @@ export default function Header() {
         <NavTitle />
         <AppSelection />
         <nav className="flex gap-4">
+          <Link to={"/test"}>TEST</Link>
           <Link to={"/apc"}>APC_HOME</Link>
           <Link to={"/apc/page1"}>APC_PAGE1</Link>
         </nav>
